@@ -207,7 +207,7 @@ export default function App() {
     });
   }
 
-  async function loadTimeline() {
+  async functio loadTimeline() {
     if (!selectedLotId) return;
     await safeRun(async () => {
       const data = await qcApi.getTimeline(selectedLotId);
@@ -253,7 +253,7 @@ export default function App() {
     <div className="app-shell">
       <header className="topbar">
         <div>
-          <h1>QC Test Demo aaaaaaaaâ</h1
+          <h1>QC Test Demo aaaaaaaaâ</h1>
           <p>ReactJS frontend for QCTest workflow</p>
         </div>
         <button onClick={loadBaseData} disabled={loading}>Refresh</button>
