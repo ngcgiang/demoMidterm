@@ -253,7 +253,7 @@ export default function App() {
     <div className="app-shell">
       <header className="topbar">
         <div>
-          <h1>QC Test Demo aaaaaaaaâ</h1>
+          <h1>QC Test Demo aaaaaaaaâ</h1
           <p>ReactJS frontend for QCTest workflow</p>
         </div>
         <button onClick={loadBaseData} disabled={loading}>Refresh</button>
