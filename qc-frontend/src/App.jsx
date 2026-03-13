@@ -92,7 +92,7 @@ export default function App() {
     }
   }
 
-  async functio loadBaseData() {
+  async function loadBaseData() {
     await safeRun(async () => {
       const [db, al, ls] = await Promise.all([
         qcApi.getDashboard(),
