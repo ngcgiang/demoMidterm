@@ -1,19 +1,34 @@
-name: CI
+name: Node.js CI
 
+# Kích hoạt khi có push hoặc pull request vào branch main
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Run CI check
-        run: |
-          echo "CI is running..."
-          echo "Build success"
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20' # Hoặc phiên bản bạn đang dùng
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run Lint (nếu có)
+      run: npm run lint --if-present
+
+    - name: Run Tests
+      run: npm test --if-present
+
+    - name: Build Project
+      run: npm run build
